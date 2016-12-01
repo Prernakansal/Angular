@@ -1,24 +1,24 @@
 {
-  "name": "AngularJS",
-  "version": "1.0.0",
-  "description": "Angular",
-  "dependencies": {
-    "angular-md5": "^0.1.10",
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0",
-    "mysql": "^2.11.1",
-    "request": "^2.74.0",
-    "jade": "*"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {},
-  "keywords": [
-    "Angular",
-    "JavaScript"
-  ],
-  "author": "Prerna Kansal",
-  "license": "ISC"
+    "name": "AngularJS",
+    "version": "1.0.0",
+    "description": "Angular",
+    "author": "Prerna Kansal",
+    "main": "server.js",
+    "dependencies": {
+        "angular-md5": "^0.1.10",
+        "body-parser": "^1.15.2",
+        "bootstrap": "^3.3.7",
+        "express": "^4.14.0",
+        "mysql": "^2.11.1",
+        "request": "^2.74.0",
+        "method-override": "^2.1.3",
+        "static-favicon": "~1.0.0",
+        "morgan": "~1.0.0"
+    },
+    "keywords": [
+        "Angular",
+        "JavaScript"
+    ],
+    "license": "ISC",
+    "repository": {}
 }
