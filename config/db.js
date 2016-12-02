@@ -37,7 +37,6 @@ function handle_database(req, res) {
 }
 
 app.get("/", function (req, res) {
-    -
             handle_database(req, res);
 });
 
