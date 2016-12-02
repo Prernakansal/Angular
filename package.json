@@ -20,5 +20,8 @@
         "JavaScript"
     ],
     "license": "ISC",
-    "repository": {}
+    "repository": {},
+    "scripts": {
+    "start": "nodemon server.js"
+  }
 }
