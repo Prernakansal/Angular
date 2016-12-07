@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html ng-app="loginApp">
+<html ng-app="angularApp">
     <head>
         <meta charset="utf-8">
+        <base href="/">
+
         <title>Angular Login</title>
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/font-awesome.min.css">
@@ -9,13 +11,16 @@
         <link rel="stylesheet" href="/css/login.css">
 
     </head>
-    <body>
-      <div ng-view></div>
-        <script type="text/javascript" src="/js/jquery.min.js"></script>
-        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <body ng-controller="LoginController">
+        <div ng-view></div>
+
         <script type="text/javascript" src="/js/angular.js"></script>
         <script type="text/javascript" src="/js/angular-route.js"></script>
-        <script type="text/javascript" src="/login/login.js"></script>
+        <script type="text/javascript" src="routeapp.js"></script>
+        <script type="text/javascript" src="/login/controller.js"></script>
+        <script type="text/javascript" src="/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 
     </body>
+
 </html>
