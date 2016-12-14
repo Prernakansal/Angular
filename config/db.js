@@ -7,9 +7,10 @@ var pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'st_user',
-    debug: false
+    database: 'angular',
+    debug: true
 });
+
 
 function handle_database(req, res) {
 
@@ -40,4 +41,4 @@ app.get("/", function (req, res) {
             handle_database(req, res);
 });
 
-app.listen(2000);
+module.exports = pool;

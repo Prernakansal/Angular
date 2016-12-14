@@ -2,10 +2,14 @@
 
 var login = angular.module('Login');
 
-login.controller('LoginController', ['$scope', function ($scope) {
-        //$scope.U_EMAIL = "PRERNA@KANSAL.COM";
-        $scope.Login = function Login(email, password) {
-            console.log(email);
-            console.log(password);
-        };
+login.controller('LoginController', ['$scope', '$http', function ($scope, $http) {
+
+        $scope.Login = function (email, password) {
+            $http.post("/data/login", {
+                'email': email,
+                'password': password
+            }).success(function (data, status, headers, config) {
+                console.log("Data Inserted Successfully");
+            });
+        }
     }]);

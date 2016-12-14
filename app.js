@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 
 var app = express();
 var routes = require('./routes/index'); //defining the basic routing
+var userData = require('./data/userdata');
 
 // view engine setup
 var swig = require('swig');
@@ -25,8 +26,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'modules')));
 
+
 app.use('/', routes);
 app.use('/login', routes);
+
+routes.post('/data/login', userData.login);
 //
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -42,6 +46,7 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
 
     app.use(function(err, req, res, next) {
+        console.log(err);
         res.status(err.status || 500);
         res.render('error', {
             message: err.message,
@@ -53,6 +58,7 @@ if (app.get('env') === 'development') {
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
+     console.log(err);
     res.status(err.status || 500);
     res.render('error', {
         message: err.message,
