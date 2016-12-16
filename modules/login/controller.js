@@ -12,4 +12,6 @@ login.controller('LoginController', ['$scope', '$http', function ($scope, $http)
                 console.log("Data Inserted Successfully");
             });
         }
+
+
     }]);

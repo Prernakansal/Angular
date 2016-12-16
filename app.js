@@ -29,12 +29,15 @@ app.use(express.static(path.join(__dirname, 'modules')));
 
 app.use('/', routes);
 app.use('/login', routes);
+app.use('/register', routes);
 
-routes.post('/data/login', userData.login);
+//routes.post('/data/login', userData.login);
+routes.post('/data/registerUser', userData.registerUser);
 //
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
+    console.log(err);
     err.status = 404;
     next(err);
 });
@@ -44,7 +47,6 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-
     app.use(function(err, req, res, next) {
         console.log(err);
         res.status(err.status || 500);

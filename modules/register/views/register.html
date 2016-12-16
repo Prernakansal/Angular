@@ -1,0 +1,65 @@
+
+<script type="text/ng-template" id="error-messages">
+    <div ng-message="required">This field is required.</div>
+    <div ng-message="minlength">This field is too short.</div>
+    <div ng-message="maxlength">This field is too long.</div>
+</script>
+<div class="container" ng-controller="RegisterController">
+    <div class="row centered-form">
+        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Please sign up for Blog <small>It's free!</small></h3>
+                </div>
+                <div class="panel-body">
+                    <form name="registerForm" role="form" method="post" ng-submit="submitForm()">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="First Name" ng-model="first_name" ng-minlength="1" ng-maxlength="10" ng-required="true">
+                                    <p ng-show="registerForm.first_name.$invalid && !registerForm.first_name.$pristine" class="help-block">Please provide your First name in order to continue.</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name" ng-model="last_name" ng-minlength="1" ng-maxlength="10" ng-required="true">
+                                    <p ng-show="registerForm.last_name.$invalid && !registerForm.last_name.$pristine" class="help-block">Please provide your Last name in order to continue.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address" ng-model="email" ng-required="true" ng-maxlength="15" ng-messages-multiple>
+
+                            <div ng-messages="registerForm.email.$error" role="alert">
+                                <div ng-messages-include="error-messages"></div>
+                                <div ng-repeat="errorMessage in errorMessages">
+                                    <div ng-message-exp="errorMessage.type">{{ errorMessage.text}}</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password" ng-model="password" ng-required>
+                                    <p ng-show="registerForm.password.$invalid && !registerForm.password.$pristine" class="help-block">Please provide your password in order to continue.</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password" ng-model="password_confirmation" ng-required>
+                                    <p ng-show="registerForm.password.$invalid && !registerForm.password.$pristine" class="help-block">Please provide your confirm password in order to continue.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="submit" value="Register" class="btn btn-info btn-block" ng-disabled="registerForm.$invalid">
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
